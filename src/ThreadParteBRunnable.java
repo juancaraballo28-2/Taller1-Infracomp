@@ -1,18 +1,16 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
-public class parteA extends Thread {
-	
-	
-	private int n;
+public class ThreadParteBRunnable implements Runnable {
+
+private int n;
 	
 	private boolean par;
 	
 	private int segundosADormir;
 	
-	public parteA(int n, boolean par){
+	public ThreadParteBRunnable(int n, boolean par){
 		
 		this.n = n;
 		
@@ -20,7 +18,7 @@ public class parteA extends Thread {
 		
 		//Acá se modifica la cantida de ms a dormir el Thread
 		
-		this.segundosADormir = 50;
+		this.segundosADormir = 1000;
 
 	}
 
@@ -33,18 +31,16 @@ public class parteA extends Thread {
 			
 			else if(!this.par && i%2==1) System.out.println(i);
 			
-		
 			try {
 				Thread.sleep(this.segundosADormir);
 			} catch (InterruptedException e) {
 				
 				e.printStackTrace();
 			}
-		
-		
+			
 		}
 		
-
+		
 	}
 	
 	public static void main(String[]args){
@@ -67,9 +63,10 @@ public class parteA extends Thread {
 			e.printStackTrace();
 		}
 		
-		parteA hilo1 = new parteA(num , true);
+		Thread hilo1 = new Thread(new ThreadParteBRunnable(num,true));
 		
-		parteA hilo2 = new parteA(num , false);
+		Thread hilo2 = new Thread(new ThreadParteBRunnable(num,false));
+		
 		
 		
 		hilo1.start();
