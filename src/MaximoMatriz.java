@@ -79,7 +79,7 @@ public class MaximoMatriz extends Thread{
 			mayor = this.mayorFila;
 			
 			String warn = String.format(
-					"=========== Nuevo maximo encontrado =========" + "ID Thread: %d - Maximo local actual: %d - Maximo global: %d \n "
+					"=========== Nuevo maximo encontrado ========= " + "ID Thread: %d - Maximo local actual: %d - Maximo global: %d \n "
 			+ "\n",
 			this.idThread,
 			mayor,
